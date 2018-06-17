@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Pacifico';
+  src: local('Pacifico'), url(./fonts/Pacifico-Regular.ttf) format('truetype');
+}
+
+.App {
+  text-align: center;
+  font-size: 32px;
+  background-color: #387D7A;
+}
+
+.App-welcome-mssg {
+  font-family: 'Pacifico';
+  font-size: 1em;
+  color:/* #748CAB;*/ white;
+  margin: 0 auto;
+}
+

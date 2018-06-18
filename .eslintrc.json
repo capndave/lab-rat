@@ -29,7 +29,6 @@
         "semi": [
             "error",
             "never"
-        ],
-        "prettier/prettier": "error"
+        ]
     }
 }

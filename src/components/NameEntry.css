@@ -1,5 +1,9 @@
-.NameEntry-flexForm {
+.NameEntry-flex-form {
   display: flex;
   flex-direction: column;
+}
 
+.NameEntry-submit {
+  width: 400px;
+  margin: auto;
 }

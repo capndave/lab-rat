@@ -18,23 +18,23 @@ class NameEntry extends React.Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault()
     var sendObj = {
       firstName: this.firstName.trim(),
       lastName: this.lastName.trim()
     }
-    event.preventDefault()
   }
 
   render () {
     return (
       <form className="NameEntry-flex-form" onSubmit={this.handleSubmit}>
         <label>
-          First Name:
-          <input type="text" name="firstName" value={this.state.firstName} onChange={this.handleChange} />
+          { /*First Name:*/}
+          <input className="NameEntry-input" type="text" name="firstName" value={this.state.firstName} placeholder="First Name" onChange={this.handleChange} />
         </label>
         <label>
-          Last Name:
-          <input type="text" name="lastName" value={this.state.lastName} onChange={this.handleChange} />
+          {/* Last Name: */}
+          <input className="NameEntry-input" type="text" name="lastName" value={this.state.lastName} placeholder="Last Name" onChange={this.handleChange} />
         </label>
         <input className="NameEntry-submit" type="submit" value="Submit" />
       </form>

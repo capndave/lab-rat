@@ -19,9 +19,14 @@
   font-size: 32px;
   font-family: 'Open Sans', sans-serif;
   background-color: #387D7A;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
 }
 
 .App-welcome-mssg {
+  align-self: flex-start;
   font-family: 'Pacifico';
   font-size: 1em;
   color:/* #748CAB;*/ white;

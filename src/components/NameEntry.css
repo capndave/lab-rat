@@ -1,9 +1,25 @@
 .NameEntry-flex-form {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .NameEntry-submit {
   width: 400px;
-  margin: auto;
+  margin: 32px auto 0 auto;
+  height: 100px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  background-color: #387D7A;
+  border-radius: 10px;
+  border: 3px solid white;
+}
+
+.NameEntry-input {
+  height: 95px;
+  width: 400px;
+  margin: 32px auto 0 auto;
+  border: none;
+  border-radius: 10px;
 }

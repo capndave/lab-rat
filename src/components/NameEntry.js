@@ -29,7 +29,7 @@ class NameEntry extends React.Component {
   render () {
     console.log(this.state)
     return (
-      <form className="NameEntry-flexForm" onSubmit={this.handleSubmit}>
+      <form className="NameEntry-flex-form" onSubmit={this.handleSubmit}>
         <label>
           First Name:
           <input type="text" name="firstName" value={this.state.firstName} onChange={this.handleChange} />
@@ -38,7 +38,7 @@ class NameEntry extends React.Component {
           Last Name:
           <input type="text" name="lastName" value={this.state.lastName} onChange={this.handleChange} />
         </label>
-        <input type="submit" value="Submit" />
+        <input className="NameEntry-submit-button" type="submit" value="Submit" />
       </form>
     )
   }

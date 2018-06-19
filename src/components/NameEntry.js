@@ -2,44 +2,27 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import './NameEntry.css'
 
-class NameEntry extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      firstName: '',
-      lastName: ''
-    }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
+var NameEntry = (props) => {
 
-  handleChange(event) {
-    this.setState({[event.target.name]: event.target.value})
-  }
-
-  handleSubmit(event) {
-    event.preventDefault()
-    var sendObj = {
-      firstName: this.firstName.trim(),
-      lastName: this.lastName.trim()
-    }
-  }
-
-  render () {
     return (
-      <form className="NameEntry-flex-form" onSubmit={this.handleSubmit}>
+      <form className="NameEntry-flex-form" autoComplete="off" >
         <label>
-          { /*First Name:*/}
-          <input className="NameEntry-input" type="text" name="firstName" value={this.state.firstName} placeholder="First Name" onChange={this.handleChange} />
+          <input className="NameEntry-input" type="text" name="firstName" placeholder="First Name" onChange={(event) =>props.handleChange(event)} />
         </label>
         <label>
-          {/* Last Name: */}
-          <input className="NameEntry-input" type="text" name="lastName" value={this.state.lastName} placeholder="Last Name" onChange={this.handleChange} />
+          <input className="NameEntry-input" type="text" name="lastName" 
+placeholder="Last Name" onChange={(event) =>props.handleChange(event)} />
         </label>
-        <input className="NameEntry-submit-button" type="submit" value="Submit" />
+        <button
+          className="NameEntry-submit-button"
+          onClick={
+            (event) => {
+              event.preventDefault()
+              props.handleSubmit(event)}
+          }>Submit
+        </button>
       </form>
     )
-  }
 } 
 
 NameEntry.PropTypes = {
@@ -48,3 +31,4 @@ NameEntry.PropTypes = {
 }
 
 export default NameEntry
+// onSubmit={this.props.handleSubmit()

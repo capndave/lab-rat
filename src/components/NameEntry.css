@@ -4,7 +4,7 @@
   justify-content: space-between;
 }
 
-.NameEntry-submit {
+.NameEntry-submit-button {
   width: 400px;
   margin: 32px auto 0 auto;
   height: 100px;
@@ -17,9 +17,17 @@
 }
 
 .NameEntry-input {
+  font-size: 32px;
   height: 95px;
   width: 400px;
   margin: 32px auto 0 auto;
+  padding-left: 12px;
   border: none;
   border-radius: 10px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+input::-webkit-input-placeholder {
 }

@@ -18,7 +18,7 @@
   text-align: center;
   font-size: 32px;
   font-family: 'Open Sans', sans-serif;
-  background-color: #387D7A;
+  background-color: #387D7A  /* #183145  #748CAB*/;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -29,7 +29,8 @@
   align-self: flex-start;
   font-family: 'Pacifico';
   font-size: 1em;
-  color:/* #748CAB;*/ white;
-  margin: 0 auto;
+  color: #72A98F /*#183145*/ /*#387D7A*/ /*white*/;
+  margin: 32px auto 0 auto;
+  font-weight: normal;
 }
 

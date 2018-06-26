@@ -1,0 +1,25 @@
+.Lang-flex-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.Lang-tagline {
+  color: white;
+}
+
+.Lang-button {
+  width: 400px;
+  margin: 32px auto 0 auto;
+  height: 100px;
+  color: /*#183145*/ white;
+  font-size: 42px;
+  font-weight: bold;
+  background-color:/* #748CAB*/ /* #183145 */ #387D7A;
+  border-radius: 10px;
+  border: 3px solid white;
+}
+
+input::-webkit-input-placeholder {
+  color: #378D7A;  
+}

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import NameEntry from './components/NameEntry'
-import LangButtons from './components/LangButtons'
+import NameEntry from './components/NameEntry/NameEntry'
+import LangButtons from './components/LangButtons/LangButtons'
+import Checklist from './components/Checklist/Checklist'
+import Confirm from './components/Confirm/Confirm'
 
 class App extends Component {
   constructor(props) {
@@ -9,53 +11,65 @@ class App extends Component {
     this.state = {
       firstName: '',
       lastName: '',
-      address: false,
-      agent: false,
-      exemption: false,
-      hearingImpaired: false,
-      other: false,
-      protest: false,
+      checkFields: {
+        address: false,
+        agent: false,
+        exemption: false,
+        hearingImp: false,
+        other: false,
+        protest: false
+      },
       spanish: false,
-      langButtonsVisible: true,
-      nameEntryVisible: false
+      // langButtonsVisible: true,
+      // nameEntryVisible: false,
+      // checklistVisible: false,
+      // confirmVisible: false
+      checklistVisible: true
     }
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleNameChange = this.handleNameChange.bind(this)
+    this.handleNameSubmit = this.handleNameSubmit.bind(this)
+    this.handleChecklistSubmit = this.handleChecklistSubmit.bind(this)
     this.handleLang = this.handleLang.bind(this)
     this.titleCase = this.titleCase.bind(this)
   }
+
   
   titleCase (word) {
     return word.trim().charAt(0).toUpperCase() + word.trim().slice(1).toLowerCase()  
   }
   
-  handleChange(event) {
+  handleNameChange(event) {
     this.setState({[event.target.name]: event.target.value})
     console.log(this.state.firstName, this.state.lastName)
   }
   
-  handleSubmit(event) {
-    var name = {
-      firstName: this.titleCase(this.state.firstName), 
-      lastName: this.titleCase(this.state.lastName) 
-    }
-    console.log('submitted ' + JSON.stringify(name, undefined, 2))
+  handleNameSubmit(event) {
+    this.setState({
+      checklistVisible: true,
+      nameEntryVisible: false
+    })
+  }
+  
+  handleChecklistSubmit(event) {
+    console.log('Checklist submitted')
+    this.setState({
+      nameEntryVisible: false,
+      confirmVisible: true
+    })
+    
   }
   
   handleLang(event) {
-    //this.setState({[event.target.name]: event.target.value})
-    console.log(event.target.name)
     this.setState({
-      spanish: event.target.name === 'spanish'
-    })
-    this.setState({
+      spanish: event.target.name === 'spanish',
       langButtonVisible: false,
       nameEntryVisible: true 
     })
   }
 
   render() {
-    
+   
+    /* List of visible elements - one visible at a time */
     let visibleElement
     if (this.state.langButtonsVisible) {
       visibleElement =
@@ -66,11 +80,36 @@ class App extends Component {
     if (this.state.nameEntryVisible) {
       visibleElement = 
         <NameEntry
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
+          handleNameChange={this.handleNameChange}
+          handleNameSubmit={this.handleNameSubmit}
           spanish={this.state.spanish}
         />
     }
+    if (this.state.checklistVisible) {
+      visibleElement = 
+        <Checklist
+          handleChecklistSubmit={this.handleChecklistSubmit}
+          spanish={this.state.spanish}
+          checkFields={this.state.checkFields}      
+        />
+    }
+    if (this.state.confirmVisible) {
+      visibleElement = 
+        <Confirm
+          routeToStart={this.routeToStart}
+        />
+      
+      // Return view to initial language selection 
+      setTimeout(() => {
+        this.setState({
+          checklistVisible: false,
+          langButtonsVisible: true,
+          confirmVisible: false
+        }) 
+      }, 4000)
+    
+    }
+
     return (
       <div className="App">
         <h1 className="App-welcome-mssg">Welcome to Travis Central Appraisal District</h1>

@@ -12,7 +12,7 @@ class App extends Component {
       firstName: '',
       lastName: '',
       checkFields: {
-        address: false,
+        address: true,
         exemption: false,
         protest: false,
         other: false,
@@ -20,11 +20,10 @@ class App extends Component {
         hearingImp: false
       },
       spanish: false,
-      // langButtonsVisible: true,
-      // nameEntryVisible: false,
-      // checklistVisible: false,
-      // confirmVisible: false
-      checklistVisible: true
+      langButtonsVisible: true,
+      nameEntryVisible: false,
+      checklistVisible: false,
+      confirmVisible: false,
     }
     this.handleNameChange = this.handleNameChange.bind(this)
     this.handleNameSubmit = this.handleNameSubmit.bind(this)
@@ -60,15 +59,9 @@ class App extends Component {
   }
 
   handleCheckClick(event, name) {
-    // console.log('clicked', event.target.name)
-//    console.log(Object.keys(this.state.checkFields)[event.target.name])
-    var someProp = {...this.state.checkFields}
-    someProp[name] = !this.state.checkFields[event.target.name]
-    console.log(someProp)
-    
-    // this.setState({
-    //    checkFields[event.target.name]: !this.state.checkFields[event.target.name]
-    // }) 
+    var checkFields = {...this.state.checkFields}
+    checkFields[name] = !this.state.checkFields[event.target.name]
+    this.setState({checkFields})
   }
   
   handleLang(event) {

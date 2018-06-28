@@ -10,7 +10,7 @@ var Checklist = (props) => {
       'Exemption Issue',
       'Protest Issue',
       'Other Issue',
-      'I am an Agent',
+      'Fiduciary Issue',
       'I am hearing-impaired'
     ]
     const spanFields = [
@@ -31,16 +31,13 @@ var Checklist = (props) => {
              checked={ i[1] }
              key={ n }
              name={ i[0] }
-             onClick={(event) => {
+             onChange={(event) => {
                props.handleCheckClick(event, i[0])
              }}
            />
            <span>{ useFields[n] }</span>
          </label>
        )
-    Object.entries(props.checkFields).forEach((i, n) => {
-      console.log(i[0])
-    })
 
     return ( 
       <div>

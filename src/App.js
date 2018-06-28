@@ -13,11 +13,11 @@ class App extends Component {
       lastName: '',
       checkFields: {
         address: false,
-        agent: false,
         exemption: false,
-        hearingImp: false,
+        protest: false,
         other: false,
-        protest: false
+        agent: false,
+        hearingImp: false
       },
       spanish: false,
       // langButtonsVisible: true,
@@ -29,6 +29,7 @@ class App extends Component {
     this.handleNameChange = this.handleNameChange.bind(this)
     this.handleNameSubmit = this.handleNameSubmit.bind(this)
     this.handleChecklistSubmit = this.handleChecklistSubmit.bind(this)
+    this.handleCheckClick = this.handleCheckClick.bind(this)
     this.handleLang = this.handleLang.bind(this)
     this.titleCase = this.titleCase.bind(this)
   }
@@ -56,7 +57,18 @@ class App extends Component {
       nameEntryVisible: false,
       confirmVisible: true
     })
+  }
+
+  handleCheckClick(event, name) {
+    // console.log('clicked', event.target.name)
+//    console.log(Object.keys(this.state.checkFields)[event.target.name])
+    var someProp = {...this.state.checkFields}
+    someProp[name] = !this.state.checkFields[event.target.name]
+    console.log(someProp)
     
+    // this.setState({
+    //    checkFields[event.target.name]: !this.state.checkFields[event.target.name]
+    // }) 
   }
   
   handleLang(event) {
@@ -89,8 +101,9 @@ class App extends Component {
       visibleElement = 
         <Checklist
           handleChecklistSubmit={this.handleChecklistSubmit}
+          handleCheckClick={this.handleCheckClick}
           spanish={this.state.spanish}
-          checkFields={this.state.checkFields}      
+          checkFields={this.state.checkFields}   
         />
     }
     if (this.state.confirmVisible) {

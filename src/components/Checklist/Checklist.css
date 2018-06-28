@@ -2,6 +2,17 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  color: white;
+}
+
+.Checklist-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: calc(100vw - 400px);
+  margin: 0 auto 0 calc(50vw - 200px);
+  justify-content: left;
+  text-align: left;
 }
 
 .Checklist-Tagline {
@@ -20,16 +31,20 @@
   border: 3px solid white;
 }
 
-.NameEntry-input {
+.Checklist-checkbox {
   font-size: 42px;
-  color:  black /* #387D7A */ /* #748CAB */;  
-  height: 95px;
-  width: 400px;
-  margin: 32px auto 0 auto;
-  padding-left: 24px;
-  border: none;
+  color:  white /* #387D7A */ /* #748CAB */;  
+  height: 50px;
+  width: 50px;
+  margin-right: 16px;
   border-radius: 10px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  vertical-align: middle
+}
+
+.Checklist-label span {
+  vertical-align: middle;
+  font-size: 42px; 
 }

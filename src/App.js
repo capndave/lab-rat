@@ -27,6 +27,7 @@ class App extends Component {
     }
     this.handleNameChange = this.handleNameChange.bind(this)
     this.handleNameSubmit = this.handleNameSubmit.bind(this)
+    this.handleKbdChange = this.handleKbdChange.bind(this)
     this.handleChecklistSubmit = this.handleChecklistSubmit.bind(this)
     this.handleCheckClick = this.handleCheckClick.bind(this)
     this.handleLang = this.handleLang.bind(this)
@@ -41,6 +42,13 @@ class App extends Component {
   handleNameChange(event) {
     this.setState({[event.target.name]: event.target.value})
     console.log(this.state.firstName, this.state.lastName)
+  }
+
+  handleKbdChange(input, src) {
+    console.log(input, src)
+    this.setState({
+      [src.name]: input 
+    })
   }
   
   handleNameSubmit(event) {
@@ -87,7 +95,10 @@ class App extends Component {
         <NameEntry
           handleNameChange={this.handleNameChange}
           handleNameSubmit={this.handleNameSubmit}
+          handleKbdChange={this.handleKbdChange} 
           spanish={this.state.spanish}
+          firstName={this.state.firstName}
+          lastName={this.state.lastName}
         />
     }
     if (this.state.checklistVisible) {

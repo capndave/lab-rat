@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'Pacifico';
+  src: local('Pacifico'), url(../../fonts/Pacifico-Regular.ttf) format('truetype');
+}
+
+.LandingPage {
+
+}
+
+.LandingPage .app-title {
+  font-family: 'Pacifico';
+  font-weight: normal;
+}

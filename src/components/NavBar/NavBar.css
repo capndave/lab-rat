@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'Pacifico';
+  src: local('Pacifico'), url(../../fonts/Pacifico-Regular.ttf) format('truetype');
+}
+
+
+.NavBar {
+  background-color: #414438;
+}
+
+.NavBar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.NavBar ul li {
+  display: block;
+  float: left;
+  padding: 12px;
+}
+
+.NavBar .app-title {
+  font-family: 'Pacifico';
+  color: #FBB02D;
+  font-weight: normal;
+}
+

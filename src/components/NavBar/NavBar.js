@@ -17,8 +17,12 @@ class NavBar extends Component {
       <div className="NavBar"> 
         <ul>
           <li className="app-title">Lab-Rat</li>
-          <li>Item 1</li>
-          <li>Item 2</li>
+          <li>
+            <div className="sign-btn signup-btn">Sign Up</div>
+          </li>
+          <li>
+            <div className="sign-btn signin-btn">Sign In</div>
+          </li>
         </ul>
       </div>
     );

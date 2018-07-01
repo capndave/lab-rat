@@ -4,20 +4,21 @@
 }
 
 @font-face {
-  font-family: 'Open Sans';
-  src: local('Open Sans'), url(./fonts/OpenSans-Regular.ttf) format('truetype');
-  font-weight: normal;
+  font-family: 'HindMadurai';
+  src: local('HindMadurai'), url(./fonts/HindMadurai-Bold.ttf) format('truetype');
+  font-weight: bold;
 }
 
 @font-face {
-  font-family: 'Open Sans';
-  src: local('Open Sans'), url(./fonts/OpenSans-Bold.ttf) format('truetype');
-  font-weight: bold;
+  font-family: 'HindMadurai';
+  src: local('HindMadurai'), url(./fonts/HindMadurai-Regular.ttf) format('truetype');
+  font-weight: normal;
 }
+
 .App {
   text-align: center;
   font-size: 32px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'HindMadurai', sans-serif;
   background-color: #FF6600;
   color: white;
   height: 100vh;
@@ -25,13 +26,3 @@
   flex-direction: column;
   align-content: center;
 }
-
-.App-welcome-mssg {
-  align-self: flex-start;
-  font-family: 'Pacifico';
-  font-size: 1em;
-  color: #FBB02D;
-  margin: 32px auto 0 auto;
-  font-weight: normal;
-}
-

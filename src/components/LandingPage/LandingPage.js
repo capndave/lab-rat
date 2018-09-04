@@ -1,14 +1,18 @@
 import React from 'react'
 import NavBar from '../NavBar/NavBar'
-import WidePgForm from './Forms/WidePgForm'
+import AboutLabRats from './About/AboutLabRats'
+import AboutResearchers from './About/AboutResearchers'
 import './LandingPage.css'
 
 var LandingPage = (props) => {
     return ( 
       <div className="LandingPage">
         <NavBar />
-        <h1 className="LandingPage-app-title">Lab-Rat</h1>
-        <WidePgForm/>
+      {/*<h3 className="LandingPage-subheader">Make money and improve understanding</h3>*/}
+        <div className="LandingPage-Flex">
+          <AboutLabRats />
+          <AboutResearchers />
+        </div>
       </div>
     )
 } 

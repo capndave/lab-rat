@@ -1,0 +1,22 @@
+.AboutLabRats {
+  background-color: #6DA34D;
+  color: #414438;
+  padding: 0 12px;
+  min-height: 100%;
+}
+
+.AboutLabRats h3 {
+  color: white;
+}
+
+/* Make full width if small screen */
+.AboutLabRats {
+  width: calc(100vw - 24px);
+}
+
+/* Make half width if wide screen */
+@media screen and (min-width: 769px) {
+  .AboutLabRats {
+    width: calc(50vw - 24px);
+  }
+}

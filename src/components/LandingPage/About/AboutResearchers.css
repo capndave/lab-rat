@@ -1,0 +1,23 @@
+.AboutResearchers {
+  background-color: #FF7E28;
+  color: #414438;
+  padding: 0 12px;
+  height: 100%;
+}
+
+.AboutResearchers h3 {
+  color: white;
+}
+
+/* Make full width if small screen */
+.AboutResearchers {
+  width: calc(100vw - 24px);
+}
+
+/* Make half width if wide screen */
+@media screen and (min-width: 769px) {
+  .AboutResearchers {
+    width: 50vw;
+    width: calc(50vw - 24px);
+  }
+}

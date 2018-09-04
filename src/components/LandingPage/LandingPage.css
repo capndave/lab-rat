@@ -4,11 +4,27 @@
 }
 
 .LandingPage {
-
+  background-color: #414438;
 }
-
+/*
 .LandingPage-app-title {
   font-family: Pacifico;
   font-weight: normal;
-  margin: 24px auto;
+  margin: -12px auto 12px;
+  color: #FF7E28;
+}
+*/
+.LandingPage-subheader {
+  margin-top: 0;
+  color: white;
+}
+
+.LandingPage-Flex {
+  height: calc(100vh - 168px);
+  width: 100vw;
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }

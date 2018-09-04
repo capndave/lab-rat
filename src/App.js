@@ -1,27 +1,27 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
 import LandingPage from './components/LandingPage/LandingPage'
+import SignUp from './components/SignUp/SignUp'
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      dummy: null
+      route: <LandingPage handleSignUp={this.handleSignUp}/>
     }
-    // this.handleNameChange = this.handleNameChange.bind(this)
   }
-
-  view = <LandingPage />  
-  
-
+  handleSignUp = (sign) => {
+    this.setState({
+      route: <SignUp />
+    })
+  }
   render() {
-   
     return (
       <div className="App">
-        {this.view}
+        {this.state.route}
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

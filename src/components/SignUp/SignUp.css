@@ -1,0 +1,30 @@
+.SignUp .container {
+  background-color: pink;
+  flex-direction: column;
+  justify-content: center; 
+}
+
+.SignUp label {
+}
+
+/*** For Small Screens ***/
+@media only screen and (min-width: 0px) and (max-width: 520px){
+  .SignUp .container {
+     margin: 12px 12px;
+   }
+  .SignUp label {
+    display: inline-block; 
+    text-align: left;  
+  }
+}
+
+/*** For Larger Screens ***/
+@media only screen and (min-width: 520px) {
+  .SignUp .container {
+     margin: 12px auto;
+     max-width: 1200px;
+   }
+  .SignUp label {
+  }
+}
+

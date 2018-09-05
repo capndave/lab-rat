@@ -1,20 +1,59 @@
-.SignUp .container {
-  background-color: pink;
-  flex-direction: column;
-  justify-content: center; 
+
+.SignUp {
+  background-color: var(--green);
+  color: var(--grey); 
+  height: 100vh;
 }
 
-.SignUp label {
+.SignUp .container {
+  height: auto;
+  flex-direction: column;
+  justify-content: center; 
+  overflow: auto;
+}
+
+.SignUp .body-btn {
+  background-color: Transparent;
+  border: 3px solid var(--grey);
+  border-radius: 5px;
+  color: var(--grey);
+  font-size: 24px;
+  height: auto;
+  line-height: 54px;
+  padding: 0 12px;
+  width: 150px;
+}
+
+.SignUp input {
+  border-radius: 5px;
 }
 
 /*** For Small Screens ***/
 @media only screen and (min-width: 0px) and (max-width: 520px){
+  .SignUp .buttons button {
+    width: calc(50vw - 18px);
+  }
+  .SignUp .buttons {
+    justify-content: space-between;
+    width: 100%;
+  }    
   .SignUp .container {
-     margin: 12px 12px;
-   }
+    height: calc(100% - 183px);
+    justify-content: space-between;
+    margin: 12px 12px;
+    text-align: left;
+  }
+  .SignUp input {
+    border-radius: 5px;
+    height: 36px;
+    width: calc(100% - 4px);
+  }
   .SignUp label {
     display: inline-block; 
-    text-align: left;  
+    font-size: .67em;
+  }
+  #signin-submit-btn {
+    align-self: center;
   }
 }
 

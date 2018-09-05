@@ -6,57 +6,108 @@ class SignUp extends Component {
   constructor(props) { 
     super(props)
     this.state = {
-      dummy: null,
-      width: 0,
-      height: 0,
+      email: '',
+      pwd: '',
+      fName: '',
+      lName: '',
+      participant: false,
+      researcher: true,
       signInVisible: false
     } 
-    this.buttonHandler = this.buttonHandler.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleInput = this.handleInput.bind(this)
   }
 
-  buttonHandler () {
+  handleSubmit () {
     console.log('Button clicked')
   }
+
+  handleInput (e) {
+    console.log(e.target.value)
+    this.setState({
+      [e.target.name]: e.target.value    
+    })
+  } 
 
   render() {
     return (
       <div className='SignUp'>
         <NavBar />
-        <form className='flexbox flex-wrap container'>
-          <label>
-            Email
-          </label>
+        <form
+          className='flexbox flex-wrap container'
+          onSubmit={this.handleSubmit}
+        >
+          <div>
+            <label>
+              Email
+            </label>
             <input
+              value={this.state.email}
+              name='email'
+              onChange={this.handleInput}
             >
             </input>
-          <label>
-            Password
-          </label>
-            <input>
-            </input
-      
+          </div>
+          <div>
+            <label>
+              Password
+            </label>
+            <input
+              value={this.state.pwd}
+              name='pwd'
+              onChange={this.handleInput}
             >
-          <label>
-            First Name
-            <input>
-            </input
-      
+            </input>
+          </div> 
+          <div> 
+            <label>
+              First Name
+            </label>
+            <input
+              value={this.state.fName}
+              name='fName'
+              onChange={this.handleInput}
             >
-          </label>
-          <label>
-            Last Name
-            <input>
-            </input
-      
+            </input>
+          </div>
+          <div>
+            <label>
+              Last Name
+            </label>
+            <input
+              value={this.state.lName}
+              name='lName'
+              onChange={this.handleInput}
             >
-          </label>
+            </input>
+          </div>
+          <div className='flexbox buttons'>
+            <button
+              type='button'
+              className="body-btn"
+              onClick={this.buttonHandler}
+              value='participant'
+            >
+              Participant           
+            </button>
+            <button
+              type='button'
+              className="body-btn"
+              onClick={this.buttonHandler}
+              value='researcher'
+            >
+              Researcher           
+            </button>
+          </div>
           {/* Insert participant, researcher, company, industry component */} 
           <button
+            id='signin-submit-btn'
             type='button'
-            className="sign-btn signin-btn"
+            className="body-btn"
             onClick={this.buttonHandler}
-            value='Sign In'
-          >Sign In
+            value='Submit'
+          >
+            Submit
           </button>
         </form>
       </div>

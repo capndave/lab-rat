@@ -13,9 +13,9 @@ class NavBar extends Component {
     this.buttonHandler = this.buttonHandler.bind(this)
   }
   buttonHandler (e) {
-    // e.preventDefault()
-    console.log('Event is', e.target.value)
+    e.preventDefault()
     if (e.target.value === 'Sign In') {
+    
     } else {
       this.props.handleSignUp('hello')
     } 
@@ -24,7 +24,6 @@ class NavBar extends Component {
   
 
   render() { 
-    console.log('Props is NavBar are', this.props)
     return ( 
       <div className="NavBar flexbox flex-wrap"> 
         <div className="app-title">Lab-Rat</div>
@@ -45,9 +44,9 @@ class NavBar extends Component {
           </button>
         </div>
       </div>
-    );
+    )
   }
 } 
 
-export default NavBar;                                                                            
+export default NavBar
                          

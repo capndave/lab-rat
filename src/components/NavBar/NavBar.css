@@ -4,28 +4,25 @@
 }
 
 .NavBar {
-  background-color: #414438;
+  background-color: var(--grey);
 }
 
 .NavBar .app-title {
   font-family: 'Pacifico';
-  color: /*#FBB02D*/#FF7E28;
+  color: var(--orange);
   font-weight: normal;
   font-size: 48px;
   margin-left: 12px;
 }
 
 .sign-btn {
-  color: white;
+  color: var(--green);
+  background-color: Transparent;
   height: auto;
   width: 150px;
-  color: #6DA34D;
-  background-color: Transparent;
-  border: 3px solid #6DA34D;
+  border: 3px solid var(--green); 
   border-radius: 5px;
   line-height: 54px;
-  padding: 0 12px;
-  margin: 12px 12px 12px 0;
   font-size: 24px;
 }
 
@@ -34,10 +31,16 @@
   .NavBar {
     justify-content: space-evenly;
   }
+  
+  .NavBar .buttons {
+    width: 100%;
+    justify-content: space-between;
+    margin: 0 12px 12px 12px;
+  }
 
-  .sign-btn {
-    margin: 0 6px 12px 6px;
-  } 
+  .NavBar button {
+    width: calc(50vw - 18px);
+  }
 }
 
 /*** For Larger Screens ***/

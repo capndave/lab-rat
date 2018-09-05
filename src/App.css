@@ -5,14 +5,22 @@
 
 @font-face {
   font-family: 'HindMadurai';
-  src: local('HindMadurai'), url(./fonts/HindMadurai-Bold.ttf) format('truetype');
+  src: local('HindMadurai'),
+    url(./fonts/HindMadurai-Bold.ttf) format('truetype');
   font-weight: bold;
 }
 
 @font-face {
   font-family: 'HindMadurai';
-  src: local('HindMadurai'), url(./fonts/HindMadurai-Regular.ttf) format('truetype');
+  src: local('HindMadurai'),
+    url(./fonts/HindMadurai-Regular.ttf) format('truetype');
   font-weight: normal;
+}
+
+:root {
+  --grey: #414438;
+  --green: #6da34d;
+  --orange: #ff7e28;
 }
 
 .App {

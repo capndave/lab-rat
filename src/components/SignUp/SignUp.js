@@ -12,10 +12,17 @@ class SignUp extends Component {
       lName: '',
       participant: false,
       researcher: true,
+      errMssg: {
+        email: null,
+        pwd: null,
+        fName: null,
+        lName: null
+      },
       signInVisible: false
     } 
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleInput = this.handleInput.bind(this)
+    this.validateEmail = this.validateEmail.bind(this)
   }
 
   handleSubmit () {
@@ -23,13 +30,32 @@ class SignUp extends Component {
   }
 
   handleInput (e) {
-    console.log(e.target.value)
+    if (e.target.name==='email') {
+      this.validateEmail(e.target.value)
+    }
     this.setState({
       [e.target.name]: e.target.value    
     })
   } 
 
+  validateEmail (email) {
+    console.log(email.includes('@') && email.includes('.') && (email.length > 4))
+    this.setState({
+      errMssg: {
+        ...this.state.errMssg, // allows nesting
+        email:!(email.includes('@') && email.includes('.') && (email.length > 4)) ? 'Invalid Email' : null
+      }
+    })
+    console.log(this.state.errMssg.email)
+  }
+  
+  validatePwd (pwd) {
+    return pwd.includes('@') && pwd.includes('.') && (pwd.length > 5) ? true : false   
+  }
+
   render() {
+
+
     return (
       <div className='SignUp'>
         <NavBar />
@@ -41,6 +67,11 @@ class SignUp extends Component {
             <label>
               Email
             </label>
+            <div
+              className='errMssg color-orange'
+            >
+              { this.state.errMssg.email }
+            </div>
             <input
               value={this.state.email}
               name='email'
@@ -52,6 +83,11 @@ class SignUp extends Component {
             <label>
               Password
             </label>
+            <div
+              className='errMssg color-orange'
+            >
+              { this.state.errMssg.pwd }
+            </div>
             <input
               value={this.state.pwd}
               name='pwd'
@@ -63,6 +99,11 @@ class SignUp extends Component {
             <label>
               First Name
             </label>
+            <div
+              className='errMssg color-orange'
+            >
+              { this.state.errMssg.fName }
+            </div>
             <input
               value={this.state.fName}
               name='fName'
@@ -74,6 +115,11 @@ class SignUp extends Component {
             <label>
               Last Name
             </label>
+            <div
+              className='errMssg color-orange'
+            >
+              { this.state.errMssg.lName }
+            </div>
             <input
               value={this.state.lName}
               name='lName'
@@ -104,7 +150,7 @@ class SignUp extends Component {
             id='signin-submit-btn'
             type='button'
             className="body-btn"
-            onClick={this.buttonHandler}
+            onClick={this.handleSubmit}
             value='Submit'
           >
             Submit

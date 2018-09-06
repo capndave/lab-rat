@@ -52,6 +52,11 @@
     display: inline-block; 
     font-size: .67em;
   }
+  .SignUp .errMssg {
+    display: inline-block; 
+    font-size: .67em;
+    margin-left: 12px;
+  }
   #signin-submit-btn {
     align-self: center;
   }

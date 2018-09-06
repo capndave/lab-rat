@@ -33,6 +33,10 @@
   align-content: center;
 }
 
+.color-orange {
+  color: var(--orange)
+}
+
 .text-align-center {
   text-align: center;
 }

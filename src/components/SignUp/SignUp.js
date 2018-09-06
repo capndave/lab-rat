@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import NavBar from '../NavBar/NavBar'
+import { hasUpperCase, hasLowerCase, hasSpecialChar } from '../../helpers/stringMethods'
 import './SignUp.css'
   
 class SignUp extends Component { 
@@ -22,7 +23,6 @@ class SignUp extends Component {
     } 
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleInput = this.handleInput.bind(this)
-    this.validateEmail = this.validateEmail.bind(this)
   }
 
   handleSubmit () {
@@ -33,25 +33,32 @@ class SignUp extends Component {
     if (e.target.name==='email') {
       this.validateEmail(e.target.value)
     }
+    if (e.target.name==='pwd') {
+      this.validatePwd(e.target.value)
+    }
     this.setState({
       [e.target.name]: e.target.value    
     })
   } 
 
   validateEmail (email) {
-    console.log(email.includes('@') && email.includes('.') && (email.length > 4))
     this.setState({
       errMssg: {
         ...this.state.errMssg, // allows nesting
         email:!(email.includes('@') && email.includes('.') && (email.length > 4)) ? 'Invalid Email' : null
       }
     })
-    console.log(this.state.errMssg.email)
   }
   
   validatePwd (pwd) {
-    return pwd.includes('@') && pwd.includes('.') && (pwd.length > 5) ? true : false   
+    this.setState({
+      errMssg: {
+        ...this.state.errMssg, // allows nesting
+        pwd:!(hasLowerCase(pwd) && hasUpperCase(pwd) && hasSpecialChar(pwd) && (pwd.length > 4)) ? 'Invalid Pwd' : null
+      }
+    })
   }
+  
 
   render() {
 

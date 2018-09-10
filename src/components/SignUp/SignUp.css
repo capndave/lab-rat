@@ -2,14 +2,14 @@
 .SignUp {
   background-color: var(--green);
   color: var(--grey); 
-  height: 100vh;
+  min-height: 100vh;
+  overflow: auto;
 }
 
 .SignUp .container {
   height: auto;
   flex-direction: column;
-  justify-content: center; 
-  overflow: auto;
+  justify-content: flex-start; 
 }
 
 .SignUp .body-btn {
@@ -38,8 +38,8 @@
     width: 100%;
   }    
   .SignUp .container {
-    height: calc(100% - 183px);
-    justify-content: space-between;
+    min-height: calc(100% - 183px);
+    /*justify-content: space-between;*/
     margin: 12px 12px;
     text-align: left;
   }

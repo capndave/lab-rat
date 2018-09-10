@@ -5,11 +5,9 @@ import AboutResearchers from './About/AboutResearchers'
 import './LandingPage.css'
 
 var LandingPage = props => {
-  console.log('props in LandingPage are', props)
   return (
     <div className="LandingPage">
-      <NavBar handleSignUp={props.handleSignUp} />
-      {/*<h3 className="LandingPage-subheader">Make money and improve understanding</h3>*/}
+      <NavBar handleRoute={props.handleRoute}/>
       <div className="LandingPage-Flex">
         <AboutLabRats />
         <AboutResearchers />

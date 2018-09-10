@@ -37,10 +37,6 @@
   color: var(--orange)
 }
 
-.text-align-center {
-  text-align: center;
-}
-
 .flexbox {
   display: flex;
 }
@@ -51,4 +47,16 @@
 
 .float-right {
   float: right;
+}
+
+.margin-top-12 {
+  margin-top: 12px;
+}
+
+.margin-bottom-12 {
+  margin-bottom: 12px;
+}
+
+.text-align-center {
+  text-align: center;
 }

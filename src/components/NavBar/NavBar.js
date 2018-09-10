@@ -4,24 +4,14 @@ import './NavBar.css';
 class NavBar extends Component { 
   constructor(props) { 
     super(props)
-    this.state = {
-      dummy: null,
-      width: 0,
-      height: 0,
-      signInVisible: false
-    } 
     this.buttonHandler = this.buttonHandler.bind(this)
   }
-  buttonHandler (e) {
-    e.preventDefault()
-    if (e.target.value === 'Sign In') {
-    
-    } else {
-      this.props.handleSignUp('hello')
-    } 
 
+  buttonHandler (e) {
+    console.log(this.props)
+    e.preventDefault()
+    this.props.handleRoute(e.target.value) 
   }
-  
 
   render() { 
     return ( 
@@ -32,14 +22,14 @@ class NavBar extends Component {
             type='button'
             className="sign-btn signin-btn"
             onClick={this.buttonHandler}
-            value='Sign In'
+            value='signIn'
           >Sign In
           </button>
           <button
             type='button'
             className="sign-btn signup-btn"
             onClick={this.buttonHandler}
-            value='Sign Up'
+            value='signUp'
           >Sign Up
           </button>
         </div>

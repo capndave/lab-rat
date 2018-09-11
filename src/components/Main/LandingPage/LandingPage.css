@@ -1,19 +1,12 @@
 @font-face {
   font-family: 'Pacifico';
-  src: local('Pacifico'), url(../../fonts/Pacifico-Regular.ttf) format('truetype');
+  src: local('Pacifico'), url(../../../fonts/Pacifico-Regular.ttf) format('truetype');
 }
 
 .LandingPage {
   background-color: #414438;
 }
-/*
-.LandingPage-app-title {
-  font-family: Pacifico;
-  font-weight: normal;
-  margin: -12px auto 12px;
-  color: #FF7E28;
-}
-*/
+
 .LandingPage-subheader {
   margin-top: 0;
   color: white;

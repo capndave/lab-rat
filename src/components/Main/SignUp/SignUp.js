@@ -1,12 +1,11 @@
 import React, {Component} from 'react'
-import NavBar from '../NavBar/NavBar'
 import ResearcherFields from './Children/ResearcherFields'
 import InputFields from './Children/InputFields'
 import {
   hasUpperCase,
   hasLowerCase,
   hasSpecialChar,
-} from '../../helpers/stringMethods'
+} from '../../../helpers/stringMethods'
 import './SignUp.css'
 
 class SignUp extends Component {
@@ -97,7 +96,6 @@ class SignUp extends Component {
 
     return (
       <div className="SignUp">
-        <NavBar />
         <form
           className="flexbox flex-wrap container"
           onSubmit={this.handleSubmit}>

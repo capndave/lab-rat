@@ -1,0 +1,74 @@
+
+.SignIn {
+  background-color: var(--green);
+  color: var(--grey); 
+  min-height: 100vh;
+  overflow: auto;
+}
+
+.SignIn .container {
+  height: auto;
+  flex-direction: column;
+  justify-content: flex-start; 
+}
+
+.SignIn .body-btn {
+  background-color: Transparent;
+  border: 3px solid var(--grey);
+  border-radius: 5px;
+  color: var(--grey);
+  font-size: 24px;
+  height: auto;
+  line-height: 54px;
+  padding: 0 12px;
+  width: 150px;
+}
+
+.SignIn input {
+  border-radius: 5px;
+}
+
+/*** For Small Screens ***/
+@media only screen and (min-width: 0px) and (max-width: 520px){
+  .SignIn .buttons button {
+    width: calc(50vw - 18px);
+  }
+  .SignIn .buttons {
+    justify-content: space-between;
+    width: 100%;
+  }    
+  .SignIn .container {
+    min-height: calc(100% - 183px);
+    /*justify-content: space-between;*/
+    margin: 12px 12px;
+    text-align: left;
+  }
+  .SignIn input {
+    border-radius: 5px;
+    height: 36px;
+    width: calc(100% - 4px);
+  }
+  .SignIn label {
+    display: inline-block; 
+    font-size: .67em;
+  }
+  .SignIn .errMssg {
+    display: inline-block; 
+    font-size: .67em;
+    margin-left: 12px;
+  }
+  #signin-submit-btn {
+    align-self: center;
+  }
+}
+
+/*** For Larger Screens ***/
+@media only screen and (min-width: 520px) {
+  .SignIn .container {
+     margin: 12px auto;
+     max-width: 1200px;
+   }
+  .SignIn label {
+  }
+}
+

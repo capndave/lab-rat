@@ -5,7 +5,7 @@ import {
   hasUpperCase,
   hasLowerCase,
   hasSpecialChar,
-} from '../../../helpers/stringMethods'
+} from '../../helpers/stringMethods'
 import './SignUp.css'
 
 class SignUp extends Component {

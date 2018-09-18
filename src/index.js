@@ -3,10 +3,29 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './index.css';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import AWSAppSyncClient from 'aws-appsync'
+import { Rehydrated } from 'aws-appsync-react'
+import { ApolloProvider } from 'react-apollo'
+import appSyncConfig from './appsync'
 
-ReactDOM.render(
-  <Router>
-    <App />
-  </Router>,  document.getElementById('root'));
-registerServiceWorker();
+//A
+const client = new AWSAppSyncClient({
+  url: appSyncConfig.graphqlEndpoint,
+  region: appSyncConfig.region,
+  auth: {
+    type: appSyncConfig.authenticationType,
+    apiKey: appSyncConfig.apiKey,
+  }
+})
+
+// B
+const WithProvider = () => (
+  <ApolloProvider client={client}>
+    <Rehydrated>
+      <App />
+    </Rehydrated>
+  </ApolloProvider>
+)
+
+
+ReactDOM.render(<WithProvider />, document.getElementById('root'))

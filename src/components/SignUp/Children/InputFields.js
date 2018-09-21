@@ -9,13 +9,13 @@ const InputFields = props => {
         <input
           value={props.email}
           name="email"
-          onChange={this.handleInput}
+          onChange={props.handleInput}
         />
       </div>
       <div>
         <label>Password</label>
         <div className="errMssg color-orange">{props.errMssg.pwd}</div>
-        <input value={props.pwd} name="pwd" onChange={this.handleInput} />
+        <input value={props.pwd} name="pwd" onChange={props.handleInput} />
       </div>
       <div>
         <label>First Name</label>
@@ -23,7 +23,7 @@ const InputFields = props => {
         <input
           value={props.fName}
           name="fName"
-          onChange={this.handleInput}
+          onChange={props.handleInput}
         />
       </div>
       <div>
@@ -32,7 +32,7 @@ const InputFields = props => {
         <input
           value={props.lName}
           name="lName"
-          onChange={this.handleInput}
+          onChange={props.handleInput}
         />
       </div>
     </div>

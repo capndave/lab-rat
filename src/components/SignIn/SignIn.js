@@ -3,7 +3,7 @@ import {
   hasUpperCase,
   hasLowerCase,
   hasSpecialChar,
-} from '../../../helpers/stringMethods'
+} from '../../helpers/stringMethods'
 import './SignIn.css'
 
 class SignIn extends Component {
@@ -22,7 +22,7 @@ class SignIn extends Component {
   }
 
   handleSubmit() {
-    console.log('Button clicked')
+    console.log(this.state)
   }
 
   handleInput(e) {

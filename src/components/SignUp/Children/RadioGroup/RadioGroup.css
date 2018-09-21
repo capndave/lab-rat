@@ -1,0 +1,17 @@
+.RadioGroup {
+  display: inline;
+  list-style: none;
+  margin: 12px auto 0 auto;
+  padding: 0px;
+  width: 100%;
+}
+
+.RadioGroup li {
+  display: inline;
+  margin-right: 25%;
+}
+
+.RadioGroup input[type=radio] {
+  width: 100%;
+  height: 2em;
+}

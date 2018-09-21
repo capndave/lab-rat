@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import ResearcherFields from './Children/ResearcherFields'
 import InputFields from './Children/InputFields'
+import RadioGroup from './Children/RadioGroup/RadioGroup'
 import {
   hasUpperCase,
   hasLowerCase,
@@ -17,8 +18,7 @@ class SignUp extends Component {
       fName: '',
       lName: '',
       company: '',
-      participant: false,
-      researcher: true,
+      userType: "user",
       orgType: '',
       industries: [],
       errMssg: {
@@ -34,10 +34,12 @@ class SignUp extends Component {
     }
     this.handleInput = this.handleInput.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.radioVals = ['user', 'researcher']
   }
 
   handleSubmit() {
     console.log('Button clicked')
+    console.log(this.state)
   }
 
   handleInput(e) {
@@ -47,9 +49,15 @@ class SignUp extends Component {
     if (e.target.name === 'pwd') {
       this.validatePwd(e.target.value)
     }
-    this.setState({
-      [e.target.name]: e.target.value,
-    })
+    if (e.target.type === 'radio') {
+      this.setState({
+        userType: e.target.value,
+      })
+    } else {
+      this.setState({
+        [e.target.name]: e.target.value,
+      })
+    }
   }
 
   validateEmail(email) {
@@ -79,10 +87,12 @@ class SignUp extends Component {
     })
   }
 
+
+
   render() {
     let researcherFields
 
-    if (this.state.isResearcher) {
+    if (this.state.userType === 'researcher') {
       researcherFields = (
         <ResearcherFields
           company={this.state.company}
@@ -107,6 +117,13 @@ class SignUp extends Component {
             fName={this.state.fName}
             lName={this.state.lName}
           />
+          <RadioGroup
+            name="userType"      
+            values={this.radioVals}
+            handleInput={this.handleInput}
+            checkedProp={this.state.userType}
+          />
+          {/*
           <div className="flexbox buttons margin-top-12">
             <button
               type="button"
@@ -123,6 +140,7 @@ class SignUp extends Component {
               Researcher
             </button>
           </div>
+          */}
           {researcherFields}
           <button
             id="signin-submit-btn"

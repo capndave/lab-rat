@@ -21,10 +21,6 @@ class SignIn extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleSubmit() {
-    console.log(this.state)
-  }
-
   handleInput(e) {
     if (e.target.name === 'email') {
       this.validateEmail(e.target.value)
@@ -35,6 +31,10 @@ class SignIn extends Component {
     this.setState({
       [e.target.name]: e.target.value,
     })
+  }
+  
+  handleSubmit() {
+    console.log(this.state)
   }
 
   validateEmail(email) {

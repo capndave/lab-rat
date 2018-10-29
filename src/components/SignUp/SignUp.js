@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { graphql } from 'react-apollo'
 import ResearcherFields from './Children/ResearcherFields'
 import InputFields from './Children/InputFields'
 import RadioGroup from './Children/RadioGroup/RadioGroup'
@@ -7,7 +8,43 @@ import {
   hasLowerCase,
   hasSpecialChar,
 } from '../../helpers/stringMethods'
+import CreateUser from '../../mutations/CreateUser'
+import getUser from '../../queries/GetUser'
 import './SignUp.css'
+
+import gql from 'graphql-tag'
+import { Query } from 'react-apollo'
+
+const listUsers = gql`
+query listUsers {
+  listUsers {
+    items {
+      fName
+      lName
+    }
+  }
+}
+`
+
+const usersComp = () => (
+  <Query query={listUsers}>
+    {
+      ({ loading, error, data }) => {
+      if (loading) return 'Loading'
+      if (error) return `Error: ${ error.message }`
+      console.log(data)
+        
+
+      return (
+        <div>{ [...data] }</div>
+      )
+      }}
+   </Query>
+)    
+
+
+//export default usersComp
+
 
 class SignUp extends Component {
   constructor(props) {
@@ -18,7 +55,7 @@ class SignUp extends Component {
       fName: '',
       lName: '',
       company: '',
-      userType: "user",
+      userType: 'user',
       orgType: '',
       industries: [],
       errMssg: {
@@ -37,9 +74,26 @@ class SignUp extends Component {
     this.radioVals = ['user', 'researcher']
   }
 
+  addUser = () => {
+    console.log('Inside addUser')
+    console.log(this.props.onAdd)
+    const { email, pwd, fName, lName, company, userType, orgType, industries }  = this.state
+    this.props.onAdd({
+      email,
+      pwd,
+      fName,
+      lName,
+      company,
+      userType,
+      orgType,
+      industries,
+    })
+  }
+
   handleSubmit() {
     console.log('Button clicked')
     console.log(this.state)
+    this.addUser()
   }
 
   handleInput(e) {
@@ -86,8 +140,6 @@ class SignUp extends Component {
       },
     })
   }
-
-
 
   render() {
     let researcherFields
@@ -156,4 +208,20 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp
+export default graphql(CreateUser, {
+  props: props => ({
+    onAdd: user => props.mutate({
+      variables: user,
+      // optimisticResponse: { // updates data in cache
+      //   __typename: 'Mutation',
+      //   createUser: { ...user,  __typename: 'User' }
+      // },
+      // update: (proxy, { data: { CreateUser } }) => { // updates data in UI
+      //   const data = proxy.readQuery({ query: getUser });
+      //   data.listUsers.items.push(CreateUser);
+      //   proxy.writeQuery({ query: getUser, data });
+      // }
+    })
+  })
+})(SignUp)
+
